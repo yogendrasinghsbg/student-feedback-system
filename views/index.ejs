@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Application</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/" class="nav-brand text-dark">Student Feedback System System</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- /Header -->
+
+
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="add_user" class="border-shadow">
+                    <span class="text-gradient">Add Student <i class="fas fa-user"></i></span>
+                </a>
+            </div>
+
+            <!-- form handling -->
+            <form action="/" method="POST" style="margin-bottom: 100px;">
+                <div>
+                    <h3>list Of Student</h3>
+                </div>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>@Email</th>
+                            <th>Enrollment No.</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <% for(var i=0; i < users.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= i+1 %>
+                            </td>
+                            <td>
+                                <%= users[i].name %>
+                            </td>
+                            <td>
+                                <%= users[i].email %>
+                            </td>
+                            <td>
+                                <%= users[i].enrollment_no %>
+                            </td>
+                            <td>
+                                <a class="btn border-shadow delete" href="/delete/<%= users[i]._id%>">
+                                    <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                        <% } %>
+                </table>
+            </form>
+
+            <div class="box-nav d-flex justify-between">
+                <a href="add_faculty" class="border-shadow">
+                    <span class="text-gradient">Add Faculty <i class="fas fa-user"></i></span>
+                </a>
+            </div>
+
+            <form action="/" method="POST" style="margin-bottom: 100px;">
+                <div>
+                    <h3>list Of Faculty</h3>
+                </div>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>@Email</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < userfaculty.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= i+1 %>
+                                </td>
+                                <td>
+                                    <%= userfaculty[i].name %>
+                                </td>
+                                <td>
+                                    <%= userfaculty[i].email %>
+                                </td>
+                                <td>
+                                    <a class="btn border-shadow delete" href="/deletefaculty/<%= userfaculty[i]._id%>">
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                </table>
+            </form>
+
+            <div class="box-nav d-flex justify-between">
+                <a href="add_questions" class="border-shadow">
+                    <span class="text-gradient">Add Question <i class="fas fa-pencil-alt"></i></span>
+                </a>
+            </div>
+
+            <form action="/" method="POST" style="margin-bottom: 100px;">
+                <div>
+                    <h3>list Of Questions</h3>
+                </div>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Questions</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(var i=0; i < ques.length; i++) { %>
+                            <tr>
+                                <td>
+                                    <%= i+1 %>
+                                </td>
+                                <td>
+                                    <%= ques[i].question %>
+                                </td>
+                                <td>
+                                    <a class="btn border-shadow delete" href="/deletequestions/<%= ques[i]._id%>">
+                                        <span class="text-gradient"><i class="fas fa-times"></i></span>
+                                    </a>
+                                </td>
+                            </tr>
+                            <% } %>
+                    </tbody>
+                    
+                </table>
+            </form>
+
+            <div class="form-title text-center"style="margin-bottom:50px;">
+                    <a href="/viewreport" class="btn btn-danger" style="width: 200px;" >view report</a>
+            </div>
+        </div>
+
+    </main>
+    <!-- /Main Site -->
+
+
+    <!-- include footer -->
+    <%- include('include/_footer') %>
+        <!-- /include footer -->

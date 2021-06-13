@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styleregistrationlog.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <title>LogIn</title>
+</head>
+<body>
+    <div class="container px-4 py-5 mx-auto">
+        <div class="card card0">
+            <div class="d-flex flex-lg-row flex-column-reverse">
+                <div class="card card1">
+                    <div class="row justify-content-center my-auto">
+                        <div class="col-md-8 col-10 my-5">
+                            <div class="row justify-content-center px-3 mb-3"> <img id="logo" src="https://images.static-collegedunia.com/public/college_data/images/logos/1588321950SDBCLOGO.png?tr=h-50,w-50,c-force"> </div>
+                            <h3 class="mb-5 text-center heading">Student Feedback System</h3>
+                            <h6 class="msg-info">Please login to your account</h6>
+                            <% if( successmessage != ''){ %>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <strong><%= successmessage %></strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <% } %>
+                                <% if( error != ''){ %>
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <strong><%= error %></strong>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <% } %>
+                            <form action="/login" method="POST">
+                            <div class="form-group"> <label class="form-control-label ">Username</label> <input type="text" name="email" aria-describedby="emailHelp" placeholder="Email id" class="form-control"> </div>
+                            <div class="form-group"> <label class="form-control-label ">Password</label> <input type="password"  name="password" placeholder="Password" class="form-control"> </div>
+                            <div class="row justify-content-center my-3 px-3"> <button type="submit" class="btn-block btn-color">Login </button> </div>
+                            </form>
+                            <div class="row justify-content-center my-2"> <a href="#"><small class="text-muted">Forgot Password?</small></a> </div>
+                        </div>
+                    </div>
+                    <div class="bottom text-center mb-5">
+                        <a href="/" class="sm-text mx-auto mb-3">Don't have an account?<button class="btn btn-white ml-2">Create new</button></a>
+                    </div>
+                </div>
+                <div class="card card2">
+                    <div class="my-auto mx-md-5 px-md-5 right">
+                        <h3 class="text-white">Student Feedback System</h3> <small class="text-white">Nowadays,
+                            educational Institutions are paying increasing attention to the views of Student’s on the
+                            involvement in learning and teaching through reviews or feedbacks. There are n numbers of
+                            questions to evaluate the status of faculty/collage and each question contains 5 options
+                            like Excellent, very good, good, Average and Poor.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" > </script>
+</body>
+</html>

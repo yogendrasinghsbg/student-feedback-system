@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Application</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <div class="container">
+                <div class="text-center">
+                    <a href="/home" class="nav-brand text-dark">Student Feedback System System</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- /Header -->
+    <!-- Main Site -->
+    <main id="site-main">
+        <div class="container">
+
+            <div class="form-title text-center">
+                <h2 class="text-dark">Feedback Form</h2>
+                <span >Use the below form to Give Feedback</span>
+            </div>
+            <div class="form-title text-center">
+                
+            </div>
+
+            <form action="feedbackform" method="POST" id="add_user">
+                <div class="new_user">
+                    <div class="form-group">
+                            <% for(var i=0; i < ques.length; i++) { %>
+                            <label for="questions" style="font-size: larger;">
+                                <%= ques[i].question %>
+                            </label>
+                            <br>
+                            <div class="radio inline">
+                                <input type="radio" id="radio-<%= i+1 %>1" name="question<%= i+1 %>" value="Poor">
+                                <label for="radio-<%= i+1 %>1" class="radio-label">Poor</label>
+                            </div>
+                            <div class="radio inline">
+                                <input type="radio" id="radio-<%= i+1 %>2" name="question<%= i+1 %>" value="Average">
+                                <label for="radio-<%= i+1 %>2" class="radio-label">Average</label>
+                            </div>
+                            <div class="radio inline">
+                                <input type="radio" id="radio-<%= i+1 %>3" name="question<%= i+1 %>" value="Good">
+                                <label for="radio-<%= i+1 %>3" class="radio-label">Good</label>
+                            </div>
+                            <div class="radio inline">
+                                <input type="radio" id="radio-<%= i+1 %>4" name="question<%= i+1 %>" value="Very Good">
+                                <label for="radio-<%= i+1 %>4" class="radio-label">Very Good</label>
+                            </div>
+                            <div class="radio inline">
+                                <input type="radio" id="radio-<%= i+1 %>5" name="question<%= i+1 %>" value="Exellent">
+                                <label for="radio-<%= i+1 %>5" class="radio-label">Exellent</label>
+                            </div>
+                            <% } %>
+                        </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn text-dark update">Submit</button>
+                            </div>
+
+                </div>
+            </form>
+
+        </div>
+    </main>
+    <!-- /Main Site -->
+
+    
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
